@@ -1,5 +1,7 @@
 package com.hampcode.model.repository;
 
-public interface IMedicalExamRepository {
+import com.hampcode.model.entity.MedicalExam;
+
+public interface IMedicalExamRepository extends IRepository<MedicalExam>{
 
 }
