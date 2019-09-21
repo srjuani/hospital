@@ -38,21 +38,16 @@ public class MedicalConsultationController implements Serializable{
 	private List<MedicalExam> medicalExams;
 	private List<MedicalExam> medicalExamItems;
 	
-	public MedicalConsultation getMedicalConsultation() {
-		return medicalConsultation;
-	}
-
-	public void setMedicalConsultation(MedicalConsultation medicalConsultation) {
-		this.medicalConsultation = medicalConsultation;
-	}
-
 	@PostConstruct
 	public void init() {
 		
 		medicalConsultation = new MedicalConsultation();
 		medicalConsultationItem = new MedicalConsultationItem();
+		medicalExam = new MedicalExam();
 		
 		medicalExams = new ArrayList<MedicalExam>();
+		medicalExamItems=new ArrayList<MedicalExam>();
+		
 		getAllExams();
 	}
 	
@@ -74,15 +69,15 @@ public class MedicalConsultationController implements Serializable{
 	}
 	
 	public void addMedicalExamenItem() {
-		
-	}
-	
-	public List<MedicalExam> getMedicalExams() {
-		return medicalExams;
+		medicalExamItems.add(medicalExam);
 	}
 
-	public void setMedicalExams(List<MedicalExam> medicalExams) {
-		this.medicalExams = medicalExams;
+	public MedicalConsultation getMedicalConsultation() {
+		return medicalConsultation;
+	}
+
+	public void setMedicalConsultation(MedicalConsultation medicalConsultation) {
+		this.medicalConsultation = medicalConsultation;
 	}
 
 	public MedicalConsultationItem getMedicalConsultationItem() {
@@ -97,8 +92,8 @@ public class MedicalConsultationController implements Serializable{
 		return medicalConsultationItems;
 	}
 
-	public void setMedicalConsultationItems(List<MedicalConsultationItem> medicalConsultationsItems) {
-		this.medicalConsultationItems = medicalConsultationsItems;
+	public void setMedicalConsultationItems(List<MedicalConsultationItem> medicalConsultationItems) {
+		this.medicalConsultationItems = medicalConsultationItems;
 	}
 
 	public MedicalExam getMedicalExam() {
@@ -109,6 +104,14 @@ public class MedicalConsultationController implements Serializable{
 		this.medicalExam = medicalExam;
 	}
 
+	public List<MedicalExam> getMedicalExams() {
+		return medicalExams;
+	}
+
+	public void setMedicalExams(List<MedicalExam> medicalExams) {
+		this.medicalExams = medicalExams;
+	}
+
 	public List<MedicalExam> getMedicalExamItems() {
 		return medicalExamItems;
 	}
@@ -116,6 +119,9 @@ public class MedicalConsultationController implements Serializable{
 	public void setMedicalExamItems(List<MedicalExam> medicalExamItems) {
 		this.medicalExamItems = medicalExamItems;
 	}
+	
+
+	
 	
 	
 	
