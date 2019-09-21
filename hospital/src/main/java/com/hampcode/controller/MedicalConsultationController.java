@@ -10,6 +10,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.hampcode.business.IMedicalExamBusiness;
+import com.hampcode.model.entity.MedicalConsultation;
+import com.hampcode.model.entity.MedicalConsultationItem;
 import com.hampcode.model.entity.MedicalExam;
 
 @Named
@@ -24,10 +26,32 @@ public class MedicalConsultationController implements Serializable{
 	@Inject
 	private IMedicalExamBusiness medicalExamBusiness;
 	
-	private List<MedicalExam> medicalExams;
+	//consulta medica
+	private MedicalConsultation medicalConsultation;
 	
+	//lista medica de items
+	private MedicalConsultationItem medicalConsultationItem;	
+	private List<MedicalConsultationItem> medicalConsultationItems;
+	
+	//lista medica de dexamenes
+	private MedicalExam medicalExam;
+	private List<MedicalExam> medicalExams;
+	private List<MedicalExam> medicalExamItems;
+	
+	public MedicalConsultation getMedicalConsultation() {
+		return medicalConsultation;
+	}
+
+	public void setMedicalConsultation(MedicalConsultation medicalConsultation) {
+		this.medicalConsultation = medicalConsultation;
+	}
+
 	@PostConstruct
 	public void init() {
+		
+		medicalConsultation = new MedicalConsultation();
+		medicalConsultationItem = new MedicalConsultationItem();
+		
 		medicalExams = new ArrayList<MedicalExam>();
 		getAllExams();
 	}
@@ -40,6 +64,19 @@ public class MedicalConsultationController implements Serializable{
 		}
 	}
 	
+
+	public void saveMedicalConsultation() {
+	
+	}
+	
+	public void addMedicalConsultationItem() {
+		
+	}
+	
+	public void addMedicalExamenItem() {
+		
+	}
+	
 	public List<MedicalExam> getMedicalExams() {
 		return medicalExams;
 	}
@@ -47,5 +84,40 @@ public class MedicalConsultationController implements Serializable{
 	public void setMedicalExams(List<MedicalExam> medicalExams) {
 		this.medicalExams = medicalExams;
 	}
+
+	public MedicalConsultationItem getMedicalConsultationItem() {
+		return medicalConsultationItem;
+	}
+
+	public void setMedicalConsultationItem(MedicalConsultationItem medicalConsultationItem) {
+		this.medicalConsultationItem = medicalConsultationItem;
+	}
+
+	public List<MedicalConsultationItem> getMedicalConsultationItems() {
+		return medicalConsultationItems;
+	}
+
+	public void setMedicalConsultationItems(List<MedicalConsultationItem> medicalConsultationsItems) {
+		this.medicalConsultationItems = medicalConsultationsItems;
+	}
+
+	public MedicalExam getMedicalExam() {
+		return medicalExam;
+	}
+
+	public void setMedicalExam(MedicalExam medicalExam) {
+		this.medicalExam = medicalExam;
+	}
+
+	public List<MedicalExam> getMedicalExamItems() {
+		return medicalExamItems;
+	}
+
+	public void setMedicalExamItems(List<MedicalExam> medicalExamItems) {
+		this.medicalExamItems = medicalExamItems;
+	}
+	
+	
+	
 
 }
